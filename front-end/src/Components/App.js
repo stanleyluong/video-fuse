@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import VideosList from './VideosList'
 import VideoPlayer from './VideoPlayer'
-
+import Playlist from './Playlist';
 function App() {
-  
+
   const [videos, setVideos] = useState([])
+  const [remainingVideos, setRemainingVideos] = useState([])
   const [playlist, setPlaylist] = useState([])
 
   useEffect(() => {
@@ -15,35 +16,39 @@ function App() {
       videos.forEach(video=>{
         video.queued = false
       })
-      setVideos(videos)
+      const eightVideos = videos.splice(0,8)
+      console.log(eightVideos)
+      console.log(videos)
+      setVideos(eightVideos)
+      setRemainingVideos(videos)
     }
     fetchVideos()
   },[])
 
   const handleAddVideo = (video) => {
-    let newVideo = {
+   const newVideo = {
       id: video.id,
       source: video.source,
       poster: video.poster,
       queued: true
     }
-    let newPlaylist = playlist.slice()
+   const newPlaylist = playlist.slice()
     newPlaylist.push(newVideo)
     setPlaylist(newPlaylist)
-    let index = videos.indexOf(video)
-    let newVideos = videos.slice()
+   const index = videos.indexOf(video)
+   const newVideos = videos.slice()
     newVideos.splice(index,1,newVideo)
     setVideos(newVideos)
   }
 
   const handleRemoveVideo = (video) => {
-    let newPlaylist = playlist.filter(v=>{
-      return video!==v
+   const newPlaylist = playlist.filter(videosRemaining=>{
+      return videosRemaining!==video
     })
     setPlaylist(newPlaylist)
-    let newVideos = videos.slice()
-    let index = videos.indexOf(video)
-    let newVideo = {
+   const newVideos = videos.slice()
+   const index = videos.indexOf(video)
+   const newVideo = {
       id: video.id,
       source: video.source,
       poster: video.poster,
@@ -64,6 +69,9 @@ function App() {
         <VideoPlayer 
           playlist={playlist} 
           handleRemoveVideo={handleRemoveVideo} 
+          />
+          <Playlist 
+            playlist={playlist}
           />
     </div>
   );

@@ -33,7 +33,7 @@ export default function Poster(props){
     return (
         <Grid item xs={3}>
                 <Paper 
-                    className={video.queued ? classes.queued : classes.unqueued} 
+                    className={classes.unqueued} 
                     onClick={()=>{handleClick(video)}}>
                         <img className={classes.poster} src={video.poster} alt={'video poster'}/>
                 </Paper>
