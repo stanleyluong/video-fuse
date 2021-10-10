@@ -10,20 +10,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function VideosList(props){
-    // const posters = []
+
     const classes = useStyles();
-    const { handleAddVideo, handleRemoveVideo } = props
-    // useEffect(()=>{
-    //     console.log('props',props)
-    // })
 
-
-
+    const { handleAddVideo, handleRemoveVideo, videos } = props
+   
     return (
-
             <Grid className={classes.grid} container >
-                {props.videos.map((video, index)=>{
-                    return <Poster key={index} video={video} handleAddVideo={handleAddVideo} handleRemoveVideo={handleRemoveVideo} />
+                {videos.map((video, index)=>{
+                    return <Poster 
+                        key={index} 
+                        video={video} 
+                        handleAddVideo={handleAddVideo} 
+                        handleRemoveVideo={handleRemoveVideo}/>
                 })}
             </Grid>
    

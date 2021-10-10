@@ -2,15 +2,14 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import VideosList from './VideosList'
 import VideoPlayer from './VideoPlayer'
-import Submit from './Submit'
-const Transloadit = require('transloadit')
-const transloadit = new Transloadit({
-  authKey: '4ea311b8bbf84ff0a8c9d78bf7e3d0d2',
-  authSecret: '265d5b2a0a40206c6a0760fa6c8f83ff38fe12db'
-})
+// import Submit from './Submit'
+
 function App() {
   const [videos, setVideos] = useState([])
   const [playlist, setPlaylist] = useState([])
+  const [playing, setPlaying] = useState(null)
+  // const [clicked, setClicked] = useState(false)
+
   // const playlistRef = useRef(playlist)
   //render the poster images
   //make thumbnail component
@@ -29,8 +28,6 @@ function App() {
     const fetchVideos = async () => {
       const response = await fetch('http://localhost:3000/videos')
       const videos = await response.json()
-      console.log(videos)
-      console.log('useffect playlist',playlist)
       setVideos(videos)
     }
     fetchVideos()
@@ -40,22 +37,36 @@ function App() {
     let newPlaylist = playlist.slice()
     newPlaylist.push(video)
     setPlaylist(newPlaylist)
+    if(playing===null){
+      setPlaying(video)
+    }
+    console.log('playing',playing)
+    console.log('playlist',playlist)
   }
 
   const handleRemoveVideo = (video) => {
     let newPlaylist = playlist.filter(v=>{
       return video!==v
     })
-    console.log('new playlist 58',newPlaylist)
     setPlaylist(newPlaylist)
   }
   
   return (
     <div className="App">
         <h1>Video Fuse</h1>
-        <VideosList videos={videos} setPlaylist={setPlaylist} handleAddVideo={handleAddVideo} handleRemoveVideo={handleRemoveVideo} />
-        <Submit />
-        <VideoPlayer playlist={playlist} handleRemoveVideo={handleRemoveVideo}/>
+        <VideosList 
+          videos={videos} 
+          setPlaylist={setPlaylist} 
+          handleAddVideo={handleAddVideo} 
+          handleRemoveVideo={handleRemoveVideo} 
+          // clicked={clicked}
+          // setClicked={setClicked}
+          />
+        {/* <Submit /> */}
+        <VideoPlayer 
+          playlist={playlist} 
+          handleRemoveVideo={handleRemoveVideo} 
+          playing={playing} />
     </div>
   );
 }
