@@ -46,6 +46,7 @@ function App() {
     return (
         <div className="App">
             <h1>Video Fuse</h1>
+            <p>Click on videos to add to list</p>
             <VideosList 
             videos={videos} 
             playlist={playlist}

@@ -17,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
         width: '90%'
     },
     poster: {
-        width: '100%'
+        width: '100%',
+        cursor: 'pointer'
     }
 }));
 
