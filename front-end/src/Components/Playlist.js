@@ -4,24 +4,26 @@ import PlaylistPoster from "./PlaylistPoster";
 
 const useStyles = makeStyles((theme) => ({
     grid: {
-        rowGap: theme.spacing(1)
+        rowGap: theme.spacing(1),
+        justifyContent: 'center'
     }
 }));
 
 export default function Playlist(props){
     
     const classes = useStyles();
-    const { handleAddVideo, handleRemoveVideo, playlist } = props
+    const { handleRemoveVideo, playlist, indexOfVideoPlaying } = props
 
     return (
         <Grid className={classes.grid} container >
-            {playlist && playlist.map((video, index)=>{
-                return <PlaylistPoster 
+            {playlist && playlist.map((video, index) => (
+                <PlaylistPoster 
                     key={index} 
                     video={video} 
-                    handleAddVideo={handleAddVideo} 
-                    handleRemoveVideo={handleRemoveVideo}/>
-            })}
+                    handleRemoveVideo={handleRemoveVideo}
+                    isCurrentVideo={index === indexOfVideoPlaying}
+                />
+            ))}
         </Grid>
     )
 }

@@ -20,3 +20,9 @@ click picture on playlist to remove from playlist, pressing poster on videolist 
 
 0 bug
 
+dont play unless two or more videos selected
+
+
+* Add cursor: pointer; to clickable elements
+* One line of instructions- click videos at the top to add, click on a video in the playlist to remove
+* Either use or don't use semicolons consistently, no mix and match

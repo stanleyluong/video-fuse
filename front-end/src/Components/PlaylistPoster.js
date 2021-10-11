@@ -4,37 +4,29 @@ import Paper from "@material-ui/core/Paper";
 import {Grid} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-    unqueued: { 
+    transparent: { 
         backgroundColor: 'white',
         padding: theme.spacing(1),
         margin:'auto',
         width: '90%',
         opacity: '50%'
     },
-    queued: {
-        backgroundColor: 'black',
-        padding: theme.spacing(1),
-        margin: 'auto',
-        width: '90%'
-    },
     poster: {
-        width: '100%'
+        width: '100%',
+        // padding: theme.spacing
+        // margin: 'auto'
     }
 }));
 
-export default function Poster(props){
-    const { video, handleAddVideo, handleRemoveVideo } = props
+export default function PlaylistPoster(props){
+    const { video, handleRemoveVideo, isCurrentVideo } = props
     const classes = useStyles();
 
-    const handleClick = (video) => {
-        video.queued ? handleRemoveVideo(video) : handleAddVideo(video)
-    }
-
     return (
-        <Grid item xs={3}>
+        <Grid item xs={1}>
                 <Paper 
-                    className={classes.unqueued} 
-                    onClick={()=>{handleClick(video)}}>
+                    className={isCurrentVideo ? "" : classes.transparent} 
+                    onClick={()=>{handleRemoveVideo(video)}}>
                         <img className={classes.poster} src={video.poster} alt={'video poster'}/>
                 </Paper>
         </Grid>
