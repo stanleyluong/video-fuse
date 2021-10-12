@@ -1,23 +1,21 @@
 import { useState, useEffect, useRef } from "react";
 
-export default function VideoPlayer(props){
-    const { playlist, indexOfVideoPlaying, setIndexOfVideoPlaying } = props
-    const [shouldAutoPlay, setShouldAutoPlay] = useState(false)
-    const videoElement = useRef(null)
+export default function VideoPlayer(props) {
+    const { playlist, indexOfVideoPlaying, setIndexOfVideoPlaying } = props;
+    const [shouldAutoPlay, setShouldAutoPlay] = useState(false);
+    const videoElement = useRef(null);
 
     useEffect(() => {
         if (playlist.length >= 2) {
-            setShouldAutoPlay(true)
-            
+            setShouldAutoPlay(true);
             if (videoElement && videoElement.current) {
-                videoElement.current.play()
-            }
-        }
-
+                videoElement.current.play();
+            };
+        };
         if (playlist.length === 0) {
-            setShouldAutoPlay(false)
-        }
-    }, [playlist])
+            setShouldAutoPlay(false);
+        };
+    }, [playlist]);
 
     const handleOnEnd = () => {
         // increment index by 1, or reset back to 0 if at end of playlist
@@ -25,11 +23,11 @@ export default function VideoPlayer(props){
         setIndexOfVideoPlaying(nextIndex);
     };
 
-    const currentVideo = playlist[indexOfVideoPlaying]
+    const currentVideo = playlist[indexOfVideoPlaying];
 
     if (!currentVideo) {
-        return null
-    }
+        return null;
+    };
 
     return (
         <div>
@@ -39,7 +37,6 @@ export default function VideoPlayer(props){
                     width="480"
                     height="360"
                     src={currentVideo.source}
-                    // controls
                     autoPlay={shouldAutoPlay}
                     muted
                     onEnded={handleOnEnd}
@@ -48,5 +45,5 @@ export default function VideoPlayer(props){
                 />
             }
         </div>
-    )
-}
+    );
+};

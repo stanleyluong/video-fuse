@@ -15,8 +15,8 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function PlaylistPoster(props){
-    const { video, handleRemoveVideo, isCurrentVideo } = props
+export default function PlaylistPoster(props) {
+    const { video, handleRemoveVideo, isCurrentVideo } = props;
     const classes = useStyles();
 
     return (
@@ -24,8 +24,12 @@ export default function PlaylistPoster(props){
                 <Paper 
                     className={isCurrentVideo ? "" : classes.transparent} 
                     onClick={()=>{handleRemoveVideo(video)}}>
-                        <img className={classes.poster} src={video.poster} alt={'video poster'}/>
+                        <img 
+                            className={classes.poster} 
+                            src={video.poster} 
+                            alt={'video poster'}
+                        />
                 </Paper>
         </Grid>
-    )
-}  
+    );
+}; 

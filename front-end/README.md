@@ -1,3 +1,19 @@
+# `npm start`
+Run command in video-fuse-api folder to start backend. Run command again in front-end folder to start front end.
+
+# Adding videos to playlist
+Click on video posters to add to playlist. Poster will have black border when added. The same video cannot be added twice. Posters that are opaque can be added to playlist. VideoPlayer will not begin until there is at least 2 videos selected.
+
+# Removing videos from playlist
+Click on video poster to remove from playlist. Posters that have black border can be removed from playlist. Autoplay will stop if there is less than 2 videos selected.
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

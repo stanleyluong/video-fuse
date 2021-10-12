@@ -1,31 +1,31 @@
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import Poster from "./Poster";
+import Poster from "../Poster/Poster";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles( (theme) => ({
     grid: {
         rowGap: theme.spacing(1),
         justifyContent: 'space-around'        
     }
-}))
+}));
 
-export default function VideosList(props){
+export default function VideosList(props) {
 
     const classes = useStyles();
-    const { handleAddVideo, videos, playlist } = props
+    const { handleAddVideo, videos, playlist } = props;
 
     const isVideoInPlaylist = (video) => {
         for (const videoInPlaylist of playlist) {
             if (videoInPlaylist.id === video.id) {
-                return true
+                return true;
             }
         }
-        return false
+        return false;
     }
 
     return (
         <Grid className={classes.grid} container>
-            {videos.map((video, index)=>{
+            {videos.map( (video, index)=> {
                 return (
                     <Poster
                         isVideoQueued={isVideoInPlaylist(video)}
@@ -36,5 +36,5 @@ export default function VideosList(props){
                 )
             })}
         </Grid>
-    )
-}
+    );
+};

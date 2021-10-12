@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import VideosList from './VideosList';
+import { render } from '@testing-library/react';
+import VideosList from '../VideoList/VideosList';
 
 test('renders VideosList component', () => {
     const mockVideo = {
@@ -7,8 +7,13 @@ test('renders VideosList component', () => {
         "source": "https://video-fuse-footage.s3.us-east-1.amazonaws.com/astronaut-in-suit-closing-container-underwater.mp4",
         "poster": "https://video-fuse-footage.s3.us-east-1.amazonaws.com/astronaut-in-suit-closing-container-underwater.jpg",
     }
+    const mockVideo2 = {
+        "id": "abc",
+        "source": "def",
+        "poster": "ghi"
+    }
 
-    const mockVideos = [mockVideo];
+    const mockVideos = [mockVideo,mockVideo2];
     const mockPlaylist = [];
     const mockHandleVideo = () => {};
 
@@ -19,6 +24,8 @@ test('renders VideosList component', () => {
             playlist={mockPlaylist}
         />
     );
-    const titleElement = screen.getByText(/Video Fuse/i);
-    expect(titleElement).toBeInTheDocument();
+    const imageElement = document.querySelector('img')
+    expect(imageElement.src).toEqual('https://video-fuse-footage.s3.us-east-1.amazonaws.com/astronaut-in-suit-closing-container-underwater.jpg')
+    const videoElements = document.querySelectorAll('[data-testid="poster"]')
+    expect(videoElements.length).toEqual(2)   
 });

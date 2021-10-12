@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import {Grid} from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles( (theme) => ({
     unqueued: { 
         backgroundColor: 'white',
         padding: theme.spacing(1),
@@ -22,21 +22,27 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function Poster(props){
-    const { video, handleAddVideo, handleRemoveVideo, isVideoQueued } = props
+export default function Poster(props) {
+    const { video, handleAddVideo, handleRemoveVideo, isVideoQueued } = props;
     const classes = useStyles();
 
     const handleClick = (video) => {
-        video.queued ? handleRemoveVideo(video) : handleAddVideo(video)
-    }
+        video.queued ? handleRemoveVideo(video) : handleAddVideo(video);
+    };
 
     return (
         <Grid item xs={1}>
                 <Paper 
+                    data-testid={'poster'}
                     className={isVideoQueued ? classes.queued : classes.unqueued} 
-                    onClick={()=>{handleClick(video)}}>
-                        <img className={classes.poster} src={video.poster} alt={'video poster'}/>
+                    onClick={()=>{handleClick(video)}}
+                >
+                        <img 
+                            className={classes.poster} 
+                            src={video.poster} 
+                            alt={video.poster}
+                        />
                 </Paper>
         </Grid>
-    )
-}  
+    );
+};
