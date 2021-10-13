@@ -12,7 +12,7 @@ function App() {
 
     useEffect( () => {
         const fetchVideos = async () => {
-            const response = await fetch('http://localhost:3000/videos');
+            const response = await fetch('https://video-fuse-api.herokuapp.com/videos');
             const videos = await response.json();
             const numVideosToUse = 8;
             setVideos(videos.slice(0, numVideosToUse));
