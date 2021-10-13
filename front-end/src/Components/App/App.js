@@ -14,8 +14,6 @@ function App() {
         const fetchVideos = async () => {
             const response = await fetch('http://localhost:3000/videos');
             const videos = await response.json();
-
-            // this number comes from project requirements
             const numVideosToUse = 8;
             setVideos(videos.slice(0, numVideosToUse));
         }
@@ -37,10 +35,10 @@ function App() {
 
         if (indexOfVideoToRemove > -1) {
         nextPlaylist.splice(indexOfVideoToRemove, 1);
-        }
+        };
 
         setPlaylist(nextPlaylist);
-    }
+    };
 
     return (
         <div className="App">

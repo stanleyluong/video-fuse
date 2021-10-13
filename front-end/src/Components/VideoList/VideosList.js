@@ -18,10 +18,10 @@ export default function VideosList(props) {
         for (const videoInPlaylist of playlist) {
             if (videoInPlaylist.id === video.id) {
                 return true;
-            }
-        }
+            };
+        };
         return false;
-    }
+    };
 
     return (
         <Grid className={classes.grid} container>
@@ -33,7 +33,7 @@ export default function VideosList(props) {
                         video={video} 
                         handleAddVideo={handleAddVideo} 
                     />
-                )
+                );
             })}
         </Grid>
     );

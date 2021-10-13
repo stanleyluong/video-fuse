@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import {Grid} from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles( (theme) => ({
     transparent: { 
         backgroundColor: 'white',
         margin:'auto',

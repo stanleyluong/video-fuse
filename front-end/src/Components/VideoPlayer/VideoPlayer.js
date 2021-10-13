@@ -5,7 +5,7 @@ export default function VideoPlayer(props) {
     const [shouldAutoPlay, setShouldAutoPlay] = useState(false);
     const videoElement = useRef(null);
 
-    useEffect(() => {
+    useEffect( () => {
         if (playlist.length >= 2) {
             setShouldAutoPlay(true);
             if (videoElement && videoElement.current) {
