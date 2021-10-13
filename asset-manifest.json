@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/video-fuse/static/css/main.97b89987.chunk.css",
+    "main.js": "/video-fuse/static/js/main.2b47e787.chunk.js",
+    "main.js.map": "/video-fuse/static/js/main.2b47e787.chunk.js.map",
+    "runtime-main.js": "/video-fuse/static/js/runtime-main.58ed2cd6.js",
+    "runtime-main.js.map": "/video-fuse/static/js/runtime-main.58ed2cd6.js.map",
+    "static/js/2.52e74886.chunk.js": "/video-fuse/static/js/2.52e74886.chunk.js",
+    "static/js/2.52e74886.chunk.js.map": "/video-fuse/static/js/2.52e74886.chunk.js.map",
+    "static/js/3.ec739bdb.chunk.js": "/video-fuse/static/js/3.ec739bdb.chunk.js",
+    "static/js/3.ec739bdb.chunk.js.map": "/video-fuse/static/js/3.ec739bdb.chunk.js.map",
+    "index.html": "/video-fuse/index.html",
+    "static/css/main.97b89987.chunk.css.map": "/video-fuse/static/css/main.97b89987.chunk.css.map",
+    "static/js/2.52e74886.chunk.js.LICENSE.txt": "/video-fuse/static/js/2.52e74886.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.58ed2cd6.js",
+    "static/js/2.52e74886.chunk.js",
+    "static/css/main.97b89987.chunk.css",
+    "static/js/main.2b47e787.chunk.js"
+  ]
+}
